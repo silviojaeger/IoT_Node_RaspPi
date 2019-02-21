@@ -1,8 +1,54 @@
-body {
-  padding: 50px;
+body, html {
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  width: 100%;
 }
 
 a {
   color: #00B7FF;
 }
+
+#bild ,#content ,#navigation {
+  border-style: solid;
+    border-width: 2px;
+}
+
+#filed {
+  border-style: solid;
+  height: 700px;
+  width: 700px;
+}
+
+#enemy, #player {
+  background-color: gray;
+  width:100px; 
+  height: 30px;
+  text-align: center;
+}
+
+#enemy {
+  position: absolute;
+  top: 4px;
+  left: 4px;  
+}
+
+#player {
+  position: absolute;
+  top: 664px;
+  left: 638px;
+}
+
+#ball {
+  background-color: black;
+  width:20px; 
+  height: 20px;
+  position: absolute;
+  top: 350px;
+  left: 350px;
+}
+
+
+
+
