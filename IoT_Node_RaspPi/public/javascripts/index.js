@@ -9,6 +9,10 @@ function turnOnOff(on){
     }
 }
 
+function wakePC(){
+    fetch('./api/wakepc');
+}
+
 setInterval(function updateCam(){
     camPic.src = camPicUrl + '?r=' +Math.random();
 }, 1000);
