@@ -25,7 +25,14 @@ router.get('/cam', function(req, res, next) {
 
 //Wake up PC
 router.get('/wakepc', function(req, res, next) {
-  wol.wake('38:D5:47:78:C5:D7').then(res.send('wake up pc'));
+    wol.wake('38:D5:47:78:C5:D7', function(error) {
+    if(error) {
+      // handle error
+      console.log(error);
+      return;
+    }
+  });
+  res.send('waked up')
 });
 
 module.exports = router;
