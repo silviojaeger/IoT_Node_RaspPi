@@ -15,7 +15,7 @@
   <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
     <a href="/"               class="w3-bar-item w3-button w3-theme-l1">Silvio Jäger</a>
-    <a href="homeControl.html"class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home Control</a>
+    <a href="#"               class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home Control</a>
     <a href="pingpong.html"   class="w3-bar-item w3-button w3-hide-small w3-hover-white">Game</a>
   </div>
 </div>
@@ -35,27 +35,36 @@
 <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 <div class="w3-main" style="margin-left:250px">
 
-  <div class="w3-row w3-padding-64">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Welcome</h1>
-      <p>Nothing to see here ;)</p>
+    <div class="w3-row w3-padding-64">
+        <div class="w3-twothird w3-container">
+          <h1 class="w3-text-teal">Control the light</h1>
+          <button type="button" onclick="turnOnOff(true)">ON</button>
+          <button type="button" onclick="turnOnOff(false)">OFF</button>
+        </div>
     </div>
 
-  </div>
+    <div class="w3-row w3-padding-64">
+        <div class="w3-twothird w3-container">
+          <h1 class="w3-text-teal">Turn ON PC</h1>
+          <button type="button" onclick="wakePC()">wake up</button>
+        </div>
+    </div>
 
-  <footer id="myFooter">
-    <div class="w3-container w3-theme-l2 w3-padding-32">
-      <h4></h4>
+    <div class="w3-row w3-padding-64">
+        <div class="w3-twothird w3-container">
+          <h1 class="w3-text-teal">Camera</h1>
+          <img id="camPic" src="./api/cam" alt="cam">
+        </div>
     </div>
 
     <div class="w3-container w3-theme-l1">
       <p>@Silvio Jäger</p>
     </div>
   </footer>
-
 <!-- END MAIN -->
 </div>
-  <script src="javascripts/index.js"></script>
+
+  <script src="javascripts/homeControl.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
 </body>
 </html>
