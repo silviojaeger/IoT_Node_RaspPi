@@ -1,5 +1,6 @@
 var camPic = document.getElementById("camPic");
 var camPicUrl = camPic.src;
+var lightStatus = document.getElementById("lightStatus");
 
 function turnOnOff(on){
     if(on){
@@ -13,8 +14,17 @@ function wakePC(){
     fetch('./api/wakepc');
 }
 
+function setLightStatus(){ 
+  fetch('./api/lightInfo').then(function(response) {
+    response.text().then(function (text) {
+      lightStatus.innerHTML = text;
+    });
+  })
+}
+
 setInterval(function updateCam(){
     camPic.src = camPicUrl + '?r=' +Math.random();
+    setLightStatus();
 }, 1000);
 
 

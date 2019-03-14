@@ -18,6 +18,15 @@ router.get('/off', function(req, res, next) {
   fetch(url).then(res.send('turned OFF'));
 });
 
+//get light information
+router.get('/lightInfo', function(req, res, next) {
+  fetch('http://192.168.1.4/report').then(function(response) {
+    response.text().then(function (text) {
+      res.send(text);
+    });
+  })
+});
+
 //Get the camera picture
 router.get('/cam', function(req, res, next) {
   res.sendFile(camPath)
