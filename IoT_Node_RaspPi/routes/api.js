@@ -27,6 +27,12 @@ router.get('/lightInfo', function(req, res, next) {
   })
 });
 
+//Get status of PC (boolean)
+router.get('/pcUp', function(req, res, next) {
+  console.log(pcUp);
+  res.send(pcUp);
+});
+
 //Get the camera picture
 router.get('/cam', function(req, res, next) {
   res.sendFile(camPath)

@@ -1,6 +1,7 @@
 var camPic = document.getElementById("camPic");
 var camPicUrl = camPic.src;
 var lightStatus = document.getElementById("lightStatus");
+var pcStatus = document.getElementById("isPcRunning");
 
 function turnOnOff(on){
     if(on){
@@ -22,9 +23,30 @@ function setLightStatus(){
   })
 }
 
+function setPCstatus(){
+  fetch('./api/pcUp').then(function(response) {
+    response.text().then(function (text) {
+      if(text=='true'){
+        pcStatus.innerHTML = 'PC running';
+        pcStatus.style.backgroundColor = "green";
+        pcStatus.style.width = "100px";
+        pcStatus.style.margin = "20px";
+        pcStatus.style.textAlign = "center";
+      }else{
+        pcStatus.innerHTML = 'PC offline';
+        pcStatus.style.backgroundColor = "red";
+        pcStatus.style.width = "100px";
+        pcStatus.style.margin = "20px";
+        pcStatus.style.textAlign = "center";
+      };  
+    });
+  })
+}
+
 setInterval(function updateCam(){
     camPic.src = camPicUrl + '?r=' +Math.random();
     setLightStatus();
+    setPCstatus();
 }, 1000);
 
 
