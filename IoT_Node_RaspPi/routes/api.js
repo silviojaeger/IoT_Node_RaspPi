@@ -54,20 +54,14 @@ router.get('/wakepc', function(req, res, next) {
 
 //---------Piface------------------------------------------------------------
 router.get('/faceOn', function(req, res, next) {
-  
   pfio.digital_write(0, 1);
   pfio.digital_write(1, 1);
   pfio.digital_write(2, 1);
   pfio.digital_write(3, 1);
-  pfio.digital_write(0, 0);
-  pfio.digital_write(1, 0);
-  pfio.digital_write(2, 0);
-  pfio.digital_write(3, 0);
   res.send("Did it work dude?");
 });
 
 router.get('/faceOff', function(req, res, next) {
-  
   pfio.digital_write(0, 0);
   pfio.digital_write(1, 0);
   pfio.digital_write(2, 0);
