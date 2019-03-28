@@ -47,7 +47,7 @@ function faceOnOff(on){
   if(on){
       fetch('./api/faceOn');
   }else{
-      fetch('./api/faecOff');
+      fetch('./api/faceOff');
   }
 }
 //------------------PiFace----------------------------------------
