@@ -42,6 +42,15 @@ function setPCstatus(){
     });
   })
 }
+//------------------PiFace----------------------------------------
+function faceOnOff(on){
+  if(on){
+      fetch('./api/faceOn');
+  }else{
+      fetch('./api/faecOff');
+  }
+}
+//------------------PiFace----------------------------------------
 
 setInterval(function updateCam(){
     camPic.src = camPicUrl + '?r=' +Math.random();
