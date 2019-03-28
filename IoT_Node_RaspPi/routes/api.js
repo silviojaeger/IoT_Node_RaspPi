@@ -6,6 +6,7 @@ var wol = require('node-wol');
 var pfio = require("piface");
 
 var camPath =  path.join(__dirname, '../', 'public/cam/cam.jpg');
+pfio.init();
 
 //turn ON light
 router.get('/on', function(req, res, next) {
@@ -51,9 +52,9 @@ router.get('/wakepc', function(req, res, next) {
   res.send('waked up')
 });
 
-//Get the camera picture
-router.get('/face', function(req, res, next) {
-  pfio.init();
+//---------Piface------------------------------------------------------------
+router.get('/faceOn', function(req, res, next) {
+  
   pfio.digital_write(0, 1);
   pfio.digital_write(1, 1);
   pfio.digital_write(2, 1);
@@ -62,7 +63,16 @@ router.get('/face', function(req, res, next) {
   pfio.digital_write(1, 0);
   pfio.digital_write(2, 0);
   pfio.digital_write(3, 0);
-  res.send("Did it work dude?")
+  res.send("Did it work dude?");
+});
+
+router.get('/faceOff', function(req, res, next) {
+  
+  pfio.digital_write(0, 0);
+  pfio.digital_write(1, 0);
+  pfio.digital_write(2, 0);
+  pfio.digital_write(3, 0);
+  res.send("All off?");
 });
 
 module.exports = router;
