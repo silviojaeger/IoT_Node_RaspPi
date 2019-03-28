@@ -3,6 +3,7 @@ var router = express.Router();
 var fetch = require('node-fetch');
 var path = require('path');
 var wol = require('node-wol');
+var pfio = require("piface");
 
 var camPath =  path.join(__dirname, '../', 'public/cam/cam.jpg');
 
@@ -48,6 +49,13 @@ router.get('/wakepc', function(req, res, next) {
     }
   });
   res.send('waked up')
+});
+
+//Get the camera picture
+router.get('/face', function(req, res, next) {
+  pfio.init();
+  pfio.digital_write(1, 1);
+  res.send("Did it work dude?")
 });
 
 module.exports = router;
